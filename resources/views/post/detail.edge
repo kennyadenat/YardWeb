@@ -1,0 +1,22 @@
+@layout('main')
+
+
+
+
+@section('content')
+<h4>{{post.title}}</h4>
+
+<p>{{post.body}}</p>
+
+<a href="/post/edit/{{ post.id }}" class="btn btn-dark float-left">Edit</a>
+
+
+
+<form action="{{ '/post/' + post.id + '?_method=DELETE' }}" method="POST">
+{{ csrfField() }}
+
+<button type="submit" class="btn btn-danger float-rigth"> Delete </button>
+
+</form>
+
+@endsection
